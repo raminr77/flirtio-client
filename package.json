@@ -5,6 +5,7 @@
   "type": "module",
   "license": "MIT",
   "author": "Ramin Rezaei",
+  "homepage": "https://demo-dev.ir",
   "description": "Flirtio is an application for chat and date essayer than before!",
   "scripts": {
     "dev": "vite",
