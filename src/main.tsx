@@ -4,7 +4,11 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import { ROUTES } from "./shared/constants/routes.ts";
+import { store, persistor } from './shared/redux/store.ts';
 
 // Pages
 import { Error404 } from "./404.tsx";
@@ -24,8 +28,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('app')!).render(
   <React.StrictMode>
-    <Layout>
-      <RouterProvider router={router} />
-    </Layout>
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={null}>
+        <Layout>
+          <RouterProvider router={router} />
+        </Layout>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );

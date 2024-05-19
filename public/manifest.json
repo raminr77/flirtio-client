@@ -15,13 +15,13 @@
       "type": "image/png",
       "sizes": "540x720",
       "form_factor": "narrow",
-      "src": "/flirtio/images/screenshot-01.png"
+      "src": "/images/screenshot-01.png"
     },
     {
       "type": "image/jpg",
       "sizes": "720x540",
       "form_factor": "wide",
-      "src": "/flirtio/images/screenshot-02.jpg"
+      "src": "/images/screenshot-02.jpg"
     }
   ],
   "icons": [
