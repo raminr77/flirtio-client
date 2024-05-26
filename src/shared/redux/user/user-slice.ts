@@ -4,6 +4,8 @@ import { REDUCERS } from "../../constants/reducers.ts";
 
 const initialState: GUser = {
     email: '',
+    lastName: '',
+    firstName: '',
     isAuthenticated: false
 };
 
@@ -20,6 +22,8 @@ const userSlice = createSlice({
         userLogoutAction: () => {
             return {
                 email: '',
+                lastName: '',
+                firstName: '',
                 isAuthenticated: false
             };
         }

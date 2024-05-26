@@ -1,6 +1,10 @@
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { AuthInput } from "./auth-input";
 import { useEffect } from "react";
+import { ROUTES } from "../../../shared/constants/routes";
+import { userLoginAction } from "../../../shared/redux/user/user-slice";
 
 type LoginFormInputs = {
   email: string;
@@ -8,6 +12,9 @@ type LoginFormInputs = {
 };
 
 export function LoginForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     reset: loginReset,
     register: loginForm,
@@ -16,12 +23,20 @@ export function LoginForm() {
   } = useForm<LoginFormInputs>();
 
   const onLoginSubmit: SubmitHandler<LoginFormInputs> = (data) => {
+    // TODO 3: Login API Request
     console.log(data);
     loginReset();
   };
 
   const googleAction = () => {
+    // TODO 1: Google Auth API Request
     console.log('Google Action Login');
+    dispatch(userLoginAction({
+      firstName: 'Ramin',
+      lastName: 'Rezaei',
+      email: 'info@raminrezaei.ir',
+    }));
+    navigate(ROUTES.CHAT);
   };
 
   useEffect(() => {

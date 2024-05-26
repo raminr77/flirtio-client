@@ -14,6 +14,7 @@ import { store, persistor } from './shared/redux/store.ts';
 import { Error404 } from "./404.tsx";
 import { Layout } from "./shared/layout";
 import { HomePage } from "./domains/home";
+import { ChatPage } from "./domains/chat";
 
 // Styles
 import './styles/main.scss';
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: ROUTES.HOME,
     element: <HomePage />,
+    errorElement: <Error404 />
+  },
+  {
+    path: ROUTES.CHAT,
+    element: <ChatPage />,
     errorElement: <Error404 />
   }
 ]);

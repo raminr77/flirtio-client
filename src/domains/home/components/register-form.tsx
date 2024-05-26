@@ -1,8 +1,12 @@
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { HOME_MENU } from "../constants";
 import { AuthInput } from "./auth-input";
+import { useDispatch } from "react-redux";
 import { classnames } from "../../../shared/utils/classnames";
+import { ROUTES } from "../../../shared/constants/routes";
+import { userLoginAction } from "../../../shared/redux/user/user-slice";
 
 import styles from "./register-form.module.scss";
 
@@ -17,6 +21,9 @@ type RegisterFormInputs = {
 };
 
 export function RegisterForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     getValues,
     reset: registerReset,
@@ -26,12 +33,20 @@ export function RegisterForm() {
   } = useForm<RegisterFormInputs>();
 
   const onRegisterSubmit: SubmitHandler<RegisterFormInputs> = (data) => {
+    // TODO 2: Register API Request
     console.log(data);
     registerReset();
   };
 
   const googleAction = () => {
+    // TODO 1: Google Auth API Request
     console.log('Google Action Register');
+    dispatch(userLoginAction({
+      firstName: 'Ramin',
+      lastName: 'Rezaei',
+      email: 'info@raminrezaei.ir',
+    }));
+    navigate(ROUTES.CHAT);
   };
 
   useEffect(() => {
