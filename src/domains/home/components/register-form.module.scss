@@ -1,0 +1,27 @@
+.register-form {
+  &__switch {
+    span {
+      border-radius: 26px;
+    }
+
+    span::before {
+      left: 3px;
+      content: '';
+      bottom: 3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: #fff;
+      transition-duration: 0.4s;
+    }
+
+    input:checked + span {
+      background-color: #ef4444;
+    }
+
+    input:checked + span::before {
+      transform: translateX(16px);
+    }
+  }
+}

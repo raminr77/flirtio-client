@@ -13,6 +13,6 @@
     "max-nesting-depth": 4,
     "at-rule-no-unknown": null,
     "color-no-invalid-hex": true,
-    "unit-allowed-list": ["px", "rem", "%", "deg", "fr"]
+    "unit-allowed-list": ["px", "rem", "%", "deg", "fr", "s"]
   }
 }
