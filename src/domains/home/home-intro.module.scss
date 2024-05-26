@@ -1,0 +1,16 @@
+.home-intro {
+  &__title {
+    font-size: 60px;
+    line-height: 60px;
+
+    @media (width >= 400px) {
+      font-size: 90px;
+      line-height: 90px;
+    }
+
+    @media (width >= 600px) {
+      font-size: 100px;
+      line-height: 100px;
+    }
+  }
+}

@@ -22,8 +22,10 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   }, []);
 
   return (
-    <main className='select-none'>
+    <main className='min-h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-black text-black dark:text-white'>
+
       {children}
+
       <Toaster
           position='bottom-center'
           toastOptions={{ className: 'select-none text-sm', style: toastStyle }}

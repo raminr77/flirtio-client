@@ -9,7 +9,6 @@ import { toggleDarkMode } from '../app/app-slice.ts';
 const localStorageMiddleware = (store) => (next) => (action) => {
   if (toggleDarkMode.match(action)) {
     const darkMode = action.payload;
-
     if (darkMode) {
       document.body.classList.add('dark');
       localStorage.setItem(LOCAL_STORAGE_KEYS.DARK_MODE, darkMode);
