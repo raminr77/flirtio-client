@@ -110,7 +110,7 @@ export function RegisterForm() {
             {...registerForm("terms", {required: 'Required'})}
             className='opacity-0 w-0 h-0'
           />
-          <span className="absolute cursor-pointer bg-slate-200/20 top-0 left-0 right-0 bottom-0"/>
+          <span className="absolute cursor-pointer bg-red-300 dark:bg-slate-500 top-0 left-0 right-0 bottom-0"/>
         </label>
         <div className='flex flex-col'>
           <span>Accept Terms and Conditions <a className='text-xs opacity-70'
