@@ -15,7 +15,8 @@ export function ChatHeader() {
 
   return (
     <header
-      className='w-full z-10 top-0 pt-3 pb-2 px-5 flex items-center fixed justify-between backdrop-blur-sm dark:bg-black/30 border-b'>
+      className='w-full z-10 top-0 pt-3 pb-2 px-5 flex items-center fixed justify-between backdrop-blur-sm dark:bg-black/30 border-b-2 dark:border-slate-700'
+    >
       <ToggleThemeButton/>
       <img width={36} alt='FLIRTIO' src='/images/logo.png'/>
       <button onClick={logout} className='p-2 rounded-full'>

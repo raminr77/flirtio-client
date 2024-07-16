@@ -17,7 +17,6 @@ type RegisterFormInputs = {
   lastName: string;
   firstName: string;
   rePassword: string;
-  phoneNumber: string;
 };
 
 export function RegisterForm() {
@@ -74,27 +73,22 @@ export function RegisterForm() {
             })
           }}
         />
-        <AuthInput
-          type='email'
-          placeholder='Email Address'
-          error={registerErrors.email?.message}
-          options={{
-            ...registerForm("email", {
-              required: 'Required',
-              pattern: {
-                value: /\S+@\S+\.\S+/,
-                message: "Entered value does not match email format",
-              }
-            })
-          }}
-        />
-        <AuthInput
-          placeholder='Phone Number'
-          error={registerErrors.phoneNumber?.message}
-          options={{
-            ...registerForm("phoneNumber")
-          }}
-        />
+        <div className="col-span-2">
+          <AuthInput
+            type='email'
+            placeholder='Email Address'
+            error={registerErrors.email?.message}
+            options={{
+              ...registerForm("email", {
+                required: 'Required',
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Entered value does not match email format",
+                }
+              })
+            }}
+          />
+        </div>
         <AuthInput
           type='password'
           placeholder='Password'
