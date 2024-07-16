@@ -2,11 +2,11 @@ import { useState } from "react";
 import { HOME_MENU } from "./constants";
 import { classnames } from "../../shared/utils/classnames";
 
-export function HomeTerms() {
+export function HomePlans() {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   return (
-    <section id={HOME_MENU.TERMS} className='w-full h-screen flex flex-col items-center justify-center relative'>
+    <section id={HOME_MENU.PLANS} className='w-full h-screen flex flex-col items-center justify-center relative'>
       <div
         className={classnames(
           'relative overflow-hidden w-11/12 max-w-3xl gap-y-3 shadow-md text-sm text-slate-700 dark:text-slate-200 leading-7 flex flex-col p-5 bg-slate-100/50 dark:bg-slate-500/20 backdrop-blur-sm rounded-md', {
@@ -14,7 +14,7 @@ export function HomeTerms() {
           }
         )}
       >
-        <h3 className='lato-black-italic mb-2 text-2xl text-red-500'>FLIRTIO Terms</h3>
+        <h3 className='lato-black-italic mb-2 text-2xl text-red-500'>FLIRTIO Plans</h3>
         <p>Welcome to FLIRTIO! By using FLIRTIO, you agree to the following terms and conditions:</p>
         <p>FLIRTIO uses OpenAI's API to analyze and provide suggestions for your chats and profile photos. Our goal is to help you improve your online dating conversations. We do not store any of your data. All photos and chat data uploaded are used solely for the purpose of providing the requested analysis and are deleted immediately after processing. We do not use your data for any other purposes beyond providing the analysis.</p>
         <p>Your privacy is important to us. Since we do not store or use your data, your information remains confidential and secure. FLIRTIO is intended to help improve your online dating conversations. We do not guarantee any specific outcomes. Users must be at least 18 years old to use FLIRTIO.</p>

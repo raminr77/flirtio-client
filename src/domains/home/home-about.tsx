@@ -9,7 +9,7 @@ export function HomeAbout() {
     <section id={HOME_MENU.ABOUT} className='w-full h-screen flex flex-col items-center justify-center relative'>
       <div
         className={classnames(
-          'relative overflow-hidden w-11/12 max-w-3xl gap-y-3 shadow-md text-sm text-slate-700 dark:text-slate-200 leading-7 flex flex-col p-5 bg-slate-300/20 dark:bg-slate-500/20 backdrop-blur-sm rounded-md', {
+          'relative overflow-hidden w-11/12 max-w-3xl gap-y-3 shadow-md text-sm text-slate-700 dark:text-slate-200 leading-7 flex flex-col p-5 bg-slate-100/50 dark:bg-slate-500/20 backdrop-blur-sm rounded-md', {
             'max-h-80': !showMore
           }
         )}
