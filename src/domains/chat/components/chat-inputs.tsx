@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Chats } from "../index";
 
 interface ChatInputsProps {
@@ -9,7 +9,8 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
   const [file, setFile] = useState<File | null>(null);
   const [text, setText] = useState<string>('');
 
-  const onGenerate = () => {
+  const onGenerate = (event: FormEvent) => {
+    event.preventDefault();
     onChange([
       {
         id: new Date().toISOString(),
@@ -53,7 +54,7 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
           />
         </label>
       </div>
-      <div className='w-full gap-2 flex items-center justify-center'>
+      <form className='w-full gap-2 flex items-center justify-center'>
         <input
           type='text'
           tabIndex={1}
@@ -63,12 +64,13 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
           className='w-full leading-8 dark:bg-gray-800 bg-slate-200 outline-none px-3 py-1 rounded-md'
         />
         <button
+          type="submit"
           onClick={onGenerate}
           className='bg-blue-500 text-white px-3 py-1 leading-8 rounded-md'
         >
           Generate
         </button>
-      </div>
+      </form>
     </div>
   )
 }

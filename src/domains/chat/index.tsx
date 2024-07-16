@@ -39,7 +39,7 @@ export function ChatPage() {
     <div className='flex flex-col w-full justify-center items-center relative'>
       <ChatHeader/>
 
-      <section className='w-11/12 max-w-3xl flex flex-col p-5 gap-2 text-xs h-screen pt-16'>
+      <section className='w-11/12 max-w-3xl flex flex-col p-5 gap-2 text-xs pt-20 pb-40'>
         {chats.map(({ id, file, type, text}, index) => (
           <div key={`${id}_${index}`} className={classnames('w-full flex items-center', {
             'justify-end': type === 'REQUEST'
