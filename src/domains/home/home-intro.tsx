@@ -9,7 +9,7 @@ import styles from "./home-intro.module.scss";
 
 export function HomeIntro() {
   return (
-    <section id={HOME_MENU.HOME} className='w-11/12 relative h-screen flex flex-col items-center justify-center'>
+    <section id={HOME_MENU.HOME} className='w-11/12 relative h-screen flex flex-col items-center justify-center z-10'>
 
       <div className='flex flex-col justify-center items-center'>
         <h1 className={classnames(
