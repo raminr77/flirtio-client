@@ -4,6 +4,7 @@ import { REDUCERS } from "../../constants/reducers.ts";
 
 const initialState: GUser = {
     email: '',
+    credit: 0,
     lastName: '',
     firstName: '',
     isAuthenticated: false
@@ -15,6 +16,7 @@ const userSlice = createSlice({
     reducers: {
         userLoginAction: (_, action) => {
             return {
+                credit: 3,
                 isAuthenticated: true,
                 ...(action.payload || {})
             };
@@ -22,6 +24,7 @@ const userSlice = createSlice({
         userLogoutAction: () => {
             return {
                 email: '',
+                credit: 0,
                 lastName: '',
                 firstName: '',
                 isAuthenticated: false

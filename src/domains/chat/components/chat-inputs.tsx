@@ -31,7 +31,7 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
   };
 
   return (
-    <div className='text-xs flex-col flex items-center justify-center gap-2 p-4 z-10 fixed bottom-3 w-11/12 max-w-3xl rounded-md backdrop-blur-sm dark:bg-black/30'>
+    <div className='text-xs flex-col flex items-center justify-center gap-2 p-4 z-0 fixed bottom-3 w-11/12 max-w-3xl rounded-md backdrop-blur-sm dark:bg-black/30'>
       <div className='w-full flex items-center justify-center flex-col text-center rounded-md leading-8 py-3 text-slate-400 dark:text-slate-600 cursor-pointer dark:bg-gray-800 bg-slate-200 relative'>
         {file && (
           <button

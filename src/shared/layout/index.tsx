@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { toggleDarkMode } from "../redux/app/app-slice.ts";
 import { appSelectors } from "../redux/app/app-selectors.ts";
+import { ModalProvider } from "../components/modal-provider/index.tsx";
 
 export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   const dispatch = useDispatch();
@@ -20,12 +21,13 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   }, []);
 
   return (
-    <main className='min-h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-black text-black dark:text-white'>
+    <main className='relative min-h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-black text-black dark:text-white'>
       <img
         alt=""
         className="top-0 fixed"
         src="/images/background.png"
       />
+      <ModalProvider />
 
       {children}
 
