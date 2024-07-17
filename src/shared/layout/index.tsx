@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { toggleDarkMode } from "../redux/app/app-slice.ts";
 import { appSelectors } from "../redux/app/app-selectors.ts";
-import { LOCAL_STORAGE_KEYS } from "../constants/local-storage-keys.ts";
 
 export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   const dispatch = useDispatch();
@@ -17,8 +16,7 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   };
 
   useEffect(() => {
-    const hasDarkMode = !!localStorage.getItem(LOCAL_STORAGE_KEYS.DARK_MODE);
-    dispatch(toggleDarkMode(hasDarkMode));
+    dispatch(toggleDarkMode(true));
   }, []);
 
   return (
