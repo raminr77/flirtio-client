@@ -3,6 +3,7 @@ import { HomeStart } from "./home-start";
 import { HomeTerms } from "./home-terms";
 import { HomeAbout } from "./home-about";
 import { HOME_MENU } from "./constants";
+import { HomeParticles } from "./home-particles";
 import { ToggleThemeButton } from "../../shared/components/toggle-theme-button";
 
 const MENU_ITEM_CLASSES: string = 'duration-300 border-b px-3 leading-7 hover:-translate-y-1 border-b-black dark:border-b-white';
@@ -28,6 +29,8 @@ export function HomePage(){
       <HomeAbout />
       <HomeTerms />
       <HomeStart />
+
+      <HomeParticles />
 
       <div className="w-full fixed top-0 h-screen pointer-events-none z-0">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full absolute bottom-0">

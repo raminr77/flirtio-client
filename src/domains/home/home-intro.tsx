@@ -11,7 +11,7 @@ export function HomeIntro() {
   return (
     <section id={HOME_MENU.HOME} className='w-11/12 relative h-screen flex flex-col items-center justify-center z-10'>
 
-      <div className='flex flex-col justify-center items-center'>
+      <div className='flex flex-col justify-center items-center backdrop-blur-sm'>
         <h1 className={classnames(
           'relative lato-black-italic',
           styles['home-intro__title'],
