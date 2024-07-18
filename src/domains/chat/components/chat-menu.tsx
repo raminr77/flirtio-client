@@ -15,7 +15,6 @@ interface ChatMenuProps {
     onClose: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
-
 export function ChatMenu({ show = false, onClose }: ChatMenuProps){
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -76,14 +75,14 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
             {firstName ? `Hi, ${firstName}` : 'Hello My Friend!'}
           </h3>
 
-          {MENU.map(({ id, title, action }, index) => (
+          {MENU.map(({ id, title, action }) => (
             <button
                 key={id}
                 onClick={action}
                 className={
                   classnames(
-                    animator({ name: index % 2 ? 'fadeInRight' : 'fadeInLeft' }),
-                    "w-11/12 max-w-sm dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md"
+                    animator({ name: 'fadeIn' }),
+                    "w-11/12 max-w-sm dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md dark:hover:bg-red-400/40 hover:bg-red-100"
                   )
                 }
             >
