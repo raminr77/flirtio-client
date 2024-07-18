@@ -3,7 +3,7 @@ const renderError = (error: string = '') => {
   return <span className='text-xs text-red-500 px-1 my-1'>{error}</span>
 };
 
-const INPUT_CLASSES = 'focus:border-red-500 duration-300 w-full border-2 border-transparent outline-none leading-7 py-1 indent-2 rounded bg-white dark:bg-gray-500/20';
+export const INPUT_CLASSES = 'focus:border-red-500 duration-300 w-full border-2 border-transparent outline-none leading-7 py-1 indent-2 rounded bg-white dark:bg-gray-500/20';
 
 export function AuthInput({ error = '', type = 'text', placeholder = '', options = {} }){
   return (

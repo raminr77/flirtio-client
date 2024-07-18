@@ -82,7 +82,7 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
                 className={
                   classnames(
                     animator({ name: 'fadeIn' }),
-                    "w-11/12 max-w-sm dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md dark:hover:bg-red-400/40 hover:bg-red-100"
+                    "w-11/12 max-w-sm dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md hover:scale-95"
                   )
                 }
             >
@@ -90,7 +90,7 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
             </button>
           ))}
 
-          <span className="text-xs mt-5 opacity-50">V {ENV_DATA.VERSION}</span>
+          <span className="text-xs mt-5 dark:opacity-50 text-white">V {ENV_DATA.VERSION}</span>
         </div>
     )
 }

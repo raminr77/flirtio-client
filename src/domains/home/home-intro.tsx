@@ -3,6 +3,7 @@ import { HOME_MENU } from "./constants";
 import { animator } from "../../shared/utils/animator";
 import { classnames } from "../../shared/utils/classnames";
 
+import { ENV_DATA } from "../../shared/constants/environment";
 import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
 
 import styles from "./home-intro.module.scss";
@@ -25,6 +26,7 @@ export function HomeIntro() {
         )}>
           Is an AI for chat and date essayer than before!
         </h3>
+        <span className="text-xs mt-4 opacity-70">V {ENV_DATA.VERSION}</span>
       </div>
 
       <a href={`#${HOME_MENU.START}`} className='animate-bounce absolute bottom-20 z-10'>

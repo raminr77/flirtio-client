@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from "react";
-
-const INPUT_CLASSES = 'focus:border-red-500 duration-300 w-full border-2 border-transparent outline-none leading-7 py-1 indent-2 rounded bg-white dark:bg-gray-500/20';
+import { INPUT_CLASSES } from "../../../domains/home/components/auth-input";
 
 export function CreditModal() {
     const [credit, setCredit] = useState<number>(0);
@@ -34,7 +33,7 @@ export function CreditModal() {
             </div>
             <button
                 onClick={handleSubmit}
-                className='w-full bg-red-500 text-white leading-7 py-1 mt-2 rounded'
+                className='w-full bg-red-500 text-white leading-7 py-1 mt-3 rounded'
             >
                 Get Credit
             </button>
