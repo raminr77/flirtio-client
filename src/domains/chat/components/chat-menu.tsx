@@ -54,7 +54,7 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
                 onClick={action}
                 className={classnames(
                 animator({ name: 'fadeInUp' }),
-                    "w-full dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md"
+                    "w-11/12 max-w-sm dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md"
                 )}
             >
               {title}

@@ -35,7 +35,7 @@ export function ModalProvider() {
                 onClick={event => event.stopPropagation()}
                 className={classnames(
                     animator({ name: 'bounceInUp' }),
-                    "w-full max-w-screen-md relative py-3 px-4 rounded-lg shadow-sm dark:bg-slate-500/50 bg-slate-200 backdrop-blur-md"
+                    "w-11/12 max-w-sm relative py-3 px-4 rounded-lg shadow-sm dark:bg-slate-500/50 bg-slate-200 backdrop-blur-md"
                 )}
             >
                 <button
