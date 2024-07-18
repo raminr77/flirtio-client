@@ -25,7 +25,12 @@ export function HomePage(){
           <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.ABOUT}`}>About</a>
           <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.TERMS}`}>Terms</a>
           {isAuthenticated ? (
-            <a className={classnames(MENU_ITEM_CLASSES, 'text-red-600 border-b-red-500 dark:border-b-red-500')} href={ROUTES.CHAT}>CHAT</a>
+            <a
+              className={classnames(MENU_ITEM_CLASSES, 'text-red-600 border-b-red-500 dark:border-b-red-500')}
+              href={ROUTES.CHAT}
+            >
+              START
+            </a>
           ) : (
             <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.START}`}>Start</a>
           )}

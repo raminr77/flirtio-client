@@ -34,16 +34,13 @@ export function ModalProvider() {
             <div 
                 onClick={event => event.stopPropagation()}
                 className={classnames(
-                    animator({ name: 'bounceInUp' }),
+                    animator({ name: 'fadeInUp', speed: 'faster' }),
                     "w-11/12 max-w-sm relative py-3 px-4 rounded-lg shadow-sm dark:bg-slate-500/50 bg-slate-200 backdrop-blur-md"
                 )}
             >
                 <button
                     onClick={handleCloseButton}
-                    className={classnames(
-                        animator({ name: 'bounceIn', delay: '1s' }),
-                        "absolute -top-2 -right-2 shadow-sm"
-                    )}
+                    className="absolute -top-2 -right-2 shadow-sm"
                 >
                     <img alt="CLOSE" width={36} height={36} src="/images/close.png" />
                 </button>
