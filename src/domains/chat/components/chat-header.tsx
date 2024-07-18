@@ -5,6 +5,7 @@ import { animator } from "../../../shared/utils/animator";
 import { classnames } from "../../../shared/utils/classnames";
 import { showModal } from "../../../shared/redux/app/app-slice";
 import { MODAL_NAMES } from "../../../shared/constants/modals";
+import { ROUTES } from "../../../shared/constants/routes";
 import { useState, MouseEvent } from "react";
 import { ChatMenu } from "./chat-menu";
 
@@ -31,7 +32,9 @@ export function ChatHeader() {
     >
       <ToggleThemeButton/>
 
-      <img width={36} alt='FLIRTIO' src='/images/logo.png'/>
+      <a href={ROUTES.HOME}>
+        <img width={36} alt='FLIRTIO' src='/images/logo.png'/>
+      </a>
 
       <div className="flex items-center gap-3">
         <button onClick={handleOpenCreditModal} className='flex items-center gap-2'>

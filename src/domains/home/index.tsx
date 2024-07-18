@@ -5,10 +5,15 @@ import { HomeAbout } from "./home-about";
 import { HOME_MENU } from "./constants";
 import { HomeParticles } from "./home-particles";
 import { ToggleThemeButton } from "../../shared/components/toggle-theme-button";
+import { useSelector } from "react-redux";
+import { userSelectors } from "../../shared/redux/user/user-selectors";
+import { ROUTES } from "../../shared/constants/routes";
+import { classnames } from "../../shared/utils/classnames";
 
 const MENU_ITEM_CLASSES: string = 'duration-300 border-b px-3 leading-7 hover:-translate-y-1 border-b-black dark:border-b-white';
 
 export function HomePage(){
+  const { isAuthenticated } = useSelector(userSelectors.userInfo);
   return (
     <div className='flex flex-col w-full justify-center items-center relative'>
 
@@ -19,7 +24,11 @@ export function HomePage(){
           <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.HOME}`}>Home</a>
           <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.ABOUT}`}>About</a>
           <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.TERMS}`}>Terms</a>
-          <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.START}`}>Start</a>
+          {isAuthenticated ? (
+            <a className={classnames(MENU_ITEM_CLASSES, 'text-red-600 border-b-red-500 dark:border-b-red-500')} href={ROUTES.CHAT}>CHAT</a>
+          ) : (
+            <a className={MENU_ITEM_CLASSES} href={`#${HOME_MENU.START}`}>Start</a>
+          )}
         </div>
 
         <img width={36} alt='FLIRTIO' className='max-sm:hidden' src='/images/logo.png'/>
@@ -28,7 +37,7 @@ export function HomePage(){
       <HomeIntro />
       <HomeAbout />
       <HomeTerms />
-      <HomeStart />
+      {!isAuthenticated && (<HomeStart />)}
 
       <HomeParticles />
 

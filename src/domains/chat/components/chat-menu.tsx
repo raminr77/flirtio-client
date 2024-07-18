@@ -44,7 +44,7 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
         <div
           onClick={onClose}
           className={classnames(
-            animator({ name: "fadeIn" }),
+            animator({ name: "fadeIn", speed: 'faster' }),
             "absolute top-0 right-0 w-full h-screen z-50 dark:bg-black/90 bg-black/50 p-8 overflow-hidden flex flex-col items-center justify-center gap-2"
           )}
         >
