@@ -24,7 +24,7 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
     <main className='relative min-h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-black text-black dark:text-white'>
       <img
         alt=""
-        className="top-0 fixed"
+        className="top-0 fixed z-0"
         src="/images/background.png"
       />
       <ModalProvider />

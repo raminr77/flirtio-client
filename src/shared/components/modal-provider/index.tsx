@@ -6,6 +6,9 @@ import { hideModals } from "../../redux/app/app-slice";
 import { MouseEvent } from "react";
 import { classnames } from "../../utils/classnames";
 import { animator } from "../../utils/animator";
+import { ProfileModal } from "../profile-modal";
+import { AboutModal } from "../about-modal";
+import { PaymentModal } from "../payment-modal";
 
 export function ModalProvider() {
     const dispatch = useDispatch();
@@ -45,8 +48,10 @@ export function ModalProvider() {
                     <img alt="CLOSE" width={36} height={36} src="/images/close.png" />
                 </button>
 
+                {activeModal === MODAL_NAMES.PROFILE_MODAL && <ProfileModal />}
+                {activeModal === MODAL_NAMES.PAYMENT_MODAL && <PaymentModal />}
                 {activeModal === MODAL_NAMES.CREDIT_MODAL && <CreditModal />}
-
+                {activeModal === MODAL_NAMES.ABOUT_MODAL && <AboutModal />}
             </div>
         </div>
     );

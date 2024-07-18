@@ -8,6 +8,7 @@ import { ROUTES } from "../../../shared/constants/routes";
 import { showModal } from "../../../shared/redux/app/app-slice";
 import { MODAL_NAMES } from "../../../shared/constants/modals";
 import { userSelectors } from "../../../shared/redux/user/user-selectors";
+import { ENV_DATA } from "../../../shared/constants/environment";
 
 interface ChatMenuProps {
     show: boolean;
@@ -29,12 +30,12 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
         {
             id: 1,
             title: 'Profile',
-            action: undefined
+            action: () => dispatch(showModal(MODAL_NAMES.PROFILE_MODAL))
         },
         {
             id: 2,
             title: 'Payments',
-            action: undefined
+            action: () => dispatch(showModal(MODAL_NAMES.PAYMENT_MODAL))
         },
         {
             id: 3,
@@ -43,6 +44,11 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
         },
         {
             id: 4,
+            title: 'About Us',
+            action: () => dispatch(showModal(MODAL_NAMES.ABOUT_MODAL))
+        },
+        {
+            id: 5,
             title: 'Exit',
             action: logout
         }
@@ -59,29 +65,33 @@ export function ChatMenu({ show = false, onClose }: ChatMenuProps){
           <img
             width={120}
             height={120}
-            className={classnames('rounded-full overflow-hidden', {
+            className={classnames('rounded-full overflow-hidden', animator({ name: 'fadeIn' }), {
               'invert': !picture
             })} 
             alt={firstName}
             src={picture ? picture : '/images/user.png'} 
           />
 
-          <h3 className="text-2xl mb-5 text-white">
+          <h3 className={classnames("text-2xl lato-bold mb-5 text-white", animator({ name: 'fadeInDown' }))}>
             {firstName ? `Hi, ${firstName}` : 'Hello My Friend!'}
           </h3>
 
-          {MENU.map(({ id, title, action }) => (
+          {MENU.map(({ id, title, action }, index) => (
             <button
                 key={id}
                 onClick={action}
-                className={classnames(
-                animator({ name: 'fadeInUp' }),
+                className={
+                  classnames(
+                    animator({ name: index % 2 ? 'fadeInRight' : 'fadeInLeft' }),
                     "w-11/12 max-w-sm dark:bg-slate-700/50 bg-slate-50 backdrop-blur-md leading-9 py-2 rounded-md"
-                )}
+                  )
+                }
             >
               {title}
             </button>
           ))}
+
+          <span className="text-xs mt-5 opacity-50">V {ENV_DATA.VERSION}</span>
         </div>
     )
 }
