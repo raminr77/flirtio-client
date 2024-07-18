@@ -9,6 +9,11 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
   const [file, setFile] = useState<File | null>(null);
   const [text, setText] = useState<string>('');
 
+  const scrollToEnd = () => {
+    const { documentElement } = document;
+    documentElement.scrollTop = documentElement.scrollHeight + 100;
+  };
+
   const onGenerate = (event: FormEvent) => {
     event.preventDefault();
     onChange([
@@ -26,8 +31,9 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
       }
     ]);
     // RESET
-    setFile(null);
     setText('');
+    setFile(null);
+    scrollToEnd();
   };
 
   return (
