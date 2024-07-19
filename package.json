@@ -1,9 +1,9 @@
 {
-  "name": "flirtio",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",
+  "name": "flirtio-client",
   "author": "Ramin Rezaei",
   "homepage": "https://demo-dev.ir",
   "description": "Flirtio is an application for chat and date essayer than before!",
