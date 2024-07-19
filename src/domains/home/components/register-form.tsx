@@ -2,7 +2,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { HOME_MENU } from "../constants";
-import { AuthInput } from "./auth-input";
+import { Input } from "../../../shared/components/input";
 import { useDispatch } from "react-redux";
 import { classnames } from "../../../shared/utils/classnames";
 import { ROUTES } from "../../../shared/constants/routes";
@@ -55,7 +55,7 @@ export function RegisterForm() {
   return (
     <>
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-        <AuthInput
+        <Input
           placeholder='First Name'
           error={registerErrors.firstName?.message}
           options={{
@@ -64,7 +64,7 @@ export function RegisterForm() {
             })
           }}
         />
-        <AuthInput
+        <Input
           placeholder='Last Name'
           error={registerErrors.lastName?.message}
           options={{
@@ -74,7 +74,7 @@ export function RegisterForm() {
           }}
         />
         <div className="col-span-2">
-          <AuthInput
+          <Input
             type='email'
             placeholder='Email Address'
             error={registerErrors.email?.message}
@@ -89,7 +89,7 @@ export function RegisterForm() {
             }}
           />
         </div>
-        <AuthInput
+        <Input
           type='password'
           placeholder='Password'
           error={registerErrors.password?.message}
@@ -99,7 +99,7 @@ export function RegisterForm() {
             })
           }}
         />
-        <AuthInput
+        <Input
           type='password'
           placeholder='Repeat Password'
           error={registerErrors.rePassword?.message}
@@ -116,8 +116,8 @@ export function RegisterForm() {
         <label className={classnames("relative w-9 h-5", styles['register-form__switch'])}>
           <input
             type="checkbox"
-            {...registerForm("terms", {required: 'Required'})}
             className='opacity-0 w-0 h-0'
+            {...registerForm("terms", {required: 'Required'})}
           />
           <span className="absolute cursor-pointer bg-red-300 dark:bg-slate-500 top-0 left-0 right-0 bottom-0"/>
         </label>

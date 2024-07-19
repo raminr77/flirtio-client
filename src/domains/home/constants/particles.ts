@@ -41,7 +41,7 @@ export const PARTICLES_CONFIG: ISourceOptions = {
     },
     particles: {
         number: {
-          value: 50,
+          value: 100,
           density: {
             enable: true,
           }
@@ -59,10 +59,10 @@ export const PARTICLES_CONFIG: ISourceOptions = {
           value: 2,
         },
         line_linked: {
-          enable: false,
-          distance: 150,
+          enable: true,
+          distance: 100,
           opacity: 0.8,
-          width: 1
+          width: 2
         },
         move: {
           enable: true,

@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { AuthInput } from "./auth-input";
+import { Input } from "../../../shared/components/input";
 import { useEffect } from "react";
 import { ROUTES } from "../../../shared/constants/routes";
 import { userLoginAction } from "../../../shared/redux/user/user-slice";
@@ -46,7 +46,7 @@ export function LoginForm() {
   return (
     <>
       <div className='grid grid-cols-1 gap-2'>
-        <AuthInput
+        <Input
           type='email'
           placeholder='Email Address'
           error={loginErrors.email?.message}
@@ -60,7 +60,7 @@ export function LoginForm() {
             })
           }}
         />
-        <AuthInput
+        <Input
           type='password'
           placeholder='Password'
           error={loginErrors.password?.message}
