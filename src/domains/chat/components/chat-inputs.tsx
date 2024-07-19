@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+
 import { Chats } from '../index';
 
 interface ChatInputsProps {

@@ -1,14 +1,15 @@
 import { MouseEvent } from 'react';
-import { animator } from '../../../shared/utils/animator';
-import { classnames } from '../../../shared/utils/classnames';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { userLogoutAction } from '../../../shared/redux/user/user-slice';
+
 import { ROUTES } from '../../../shared/constants/routes';
-import { showModal } from '../../../shared/redux/app/app-slice';
+import { animator } from '../../../shared/utils/animator';
+import { classnames } from '../../../shared/utils/classnames';
 import { MODAL_NAMES } from '../../../shared/constants/modals';
-import { userSelectors } from '../../../shared/redux/user/user-selectors';
+import { showModal } from '../../../shared/redux/app/app-slice';
 import { ENV_DATA } from '../../../shared/constants/environment';
+import { userLogoutAction } from '../../../shared/redux/user/user-slice';
+import { userSelectors } from '../../../shared/redux/user/user-selectors';
 
 interface ChatMenuProps {
   show: boolean;

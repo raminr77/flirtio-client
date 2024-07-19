@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
-import { INPUT_CLASSES } from '../input';
+
+import { INPUT_CLASSES } from '../../input';
 
 export function CreditModal() {
   const [credit, setCredit] = useState<number>(0);

@@ -1,16 +1,18 @@
+import { useSelector } from 'react-redux';
+
+import { ROUTES } from '../../shared/constants/routes';
+import { classnames } from '../../shared/utils/classnames';
+import { userSelectors } from '../../shared/redux/user/user-selectors';
+import { ToggleThemeButton } from '../../shared/components/toggle-theme-button';
+
 import { HomeIntro } from './home-intro';
 import { HomeStart } from './home-start';
 import { HomeTerms } from './home-terms';
 import { HomeAbout } from './home-about';
 import { HOME_MENU } from './constants';
 import { HomeParticles } from './home-particles';
-import { ToggleThemeButton } from '../../shared/components/toggle-theme-button';
-import { useSelector } from 'react-redux';
-import { userSelectors } from '../../shared/redux/user/user-selectors';
-import { ROUTES } from '../../shared/constants/routes';
-import { classnames } from '../../shared/utils/classnames';
 
-const MENU_ITEM_CLASSES: string =
+const MENU_ITEM_CLASSES =
   'duration-300 border-b px-3 leading-7 hover:-translate-y-1 border-b-black dark:border-b-white';
 
 export function HomePage() {

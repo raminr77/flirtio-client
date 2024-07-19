@@ -1,9 +1,11 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Input } from '../input';
-import { userSelectors } from '../../../shared/redux/user/user-selectors';
-import { classnames } from '../../../shared/utils/classnames';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
+
+import { classnames } from '../../../../shared/utils/classnames';
+import { userSelectors } from '../../../../shared/redux/user/user-selectors';
+
+import { Input } from '../../input';
 
 type ProfileFormInputs = {
   password: string;

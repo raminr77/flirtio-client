@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { HOME_MENU } from './constants';
+
 import { classnames } from '../../shared/utils/classnames';
+
+import { HOME_MENU } from './constants';
 
 export function HomeAbout() {
   const [showMore, setShowMore] = useState<boolean>(false);

@@ -1,8 +1,9 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Input } from '../../../../shared/components/input';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { Input } from '../../../../shared/components/input';
 import { ROUTES } from '../../../../shared/constants/routes';
 import { userLoginAction } from '../../../../shared/redux/user/user-slice';
 

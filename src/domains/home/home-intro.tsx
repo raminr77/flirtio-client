@@ -1,11 +1,11 @@
 import Lottie from 'lottie-react';
-import { HOME_MENU } from './constants';
+
 import { animator } from '../../shared/utils/animator';
 import { classnames } from '../../shared/utils/classnames';
-
 import { ENV_DATA } from '../../shared/constants/environment';
 import LOVE_ANIMATION from '../../shared/assets/love-animation.json';
 
+import { HOME_MENU } from './constants';
 import styles from './home-intro.module.scss';
 
 export function HomeIntro() {

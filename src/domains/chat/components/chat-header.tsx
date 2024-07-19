@@ -1,13 +1,14 @@
+import { useState, MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ToggleThemeButton } from '../../../shared/components/toggle-theme-button';
-import { userSelectors } from '../../../shared/redux/user/user-selectors';
+import { ROUTES } from '../../../shared/constants/routes';
 import { animator } from '../../../shared/utils/animator';
 import { classnames } from '../../../shared/utils/classnames';
-import { showModal } from '../../../shared/redux/app/app-slice';
 import { MODAL_NAMES } from '../../../shared/constants/modals';
-import { ROUTES } from '../../../shared/constants/routes';
-import { useState, MouseEvent } from 'react';
+import { showModal } from '../../../shared/redux/app/app-slice';
+import { userSelectors } from '../../../shared/redux/user/user-selectors';
+import { ToggleThemeButton } from '../../../shared/components/toggle-theme-button';
+
 import { ChatMenu } from './chat-menu';
 
 export function ChatHeader() {
