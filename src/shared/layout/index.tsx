@@ -8,7 +8,7 @@ import { ModalProvider } from '../components/modal-provider/index.tsx';
 
 export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   const dispatch = useDispatch();
-  const { darkMode } = useSelector(appSelectors.appData);
+  const { darkMode, activeModal } = useSelector(appSelectors.appData);
   const toastStyle = {
     borderRadius: '8px',
     color: darkMode ? '#fff' : '#1e293b',
@@ -23,7 +23,7 @@ export function Layout({ children }: GCommonComponentPropertiesWithChildren) {
   return (
     <main className='relative min-h-screen select-none flex flex-col w-full overflow-x-hidden bg-white dark:bg-black text-black dark:text-white'>
       <img alt='' className='top-0 fixed z-0' src='/images/background.png' />
-      <ModalProvider />
+      {activeModal && <ModalProvider />}
 
       {children}
 

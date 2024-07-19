@@ -3,7 +3,7 @@ import { appSelectors } from '../../redux/app/app-selectors';
 import { MODAL_NAMES } from '../../constants/modals';
 import { CreditModal } from '../credit-modal';
 import { hideModals } from '../../redux/app/app-slice';
-import { MouseEvent } from 'react';
+import { MouseEvent, useEffect } from 'react';
 import { classnames } from '../../utils/classnames';
 import { animator } from '../../utils/animator';
 import { ProfileModal } from '../profile-modal';
@@ -28,7 +28,14 @@ export function ModalProvider() {
     dispatch(hideModals());
   };
 
-  if (!activeModal) return;
+  useEffect(() => {
+    const shortcuts = (event: KeyboardEvent) =>
+      event.key === 'Escape' && dispatch(hideModals());
+
+    document.addEventListener('keyup', shortcuts);
+    return () => document.removeEventListener('keyup', shortcuts);
+  }, []);
+
   return (
     <div
       onClick={handleCloseModal}
