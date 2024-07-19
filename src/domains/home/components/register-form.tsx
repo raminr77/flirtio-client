@@ -1,14 +1,14 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { HOME_MENU } from "../constants";
-import { Input } from "../../../shared/components/input";
-import { useDispatch } from "react-redux";
-import { classnames } from "../../../shared/utils/classnames";
-import { ROUTES } from "../../../shared/constants/routes";
-import { userLoginAction } from "../../../shared/redux/user/user-slice";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { HOME_MENU } from '../constants';
+import { Input } from '../../../shared/components/input';
+import { useDispatch } from 'react-redux';
+import { classnames } from '../../../shared/utils/classnames';
+import { ROUTES } from '../../../shared/constants/routes';
+import { userLoginAction } from '../../../shared/redux/user/user-slice';
 
-import styles from "./register-form.module.scss";
+import styles from './register-form.module.scss';
 
 type RegisterFormInputs = {
   terms: boolean;
@@ -28,7 +28,7 @@ export function RegisterForm() {
     reset: registerReset,
     register: registerForm,
     handleSubmit: handleRegisterSubmit,
-    formState: { errors: registerErrors}
+    formState: { errors: registerErrors }
   } = useForm<RegisterFormInputs>();
 
   const onRegisterSubmit: SubmitHandler<RegisterFormInputs> = (data) => {
@@ -40,11 +40,13 @@ export function RegisterForm() {
   const googleAction = () => {
     // TODO 1: Google Auth API Request
     console.log('Google Action Register');
-    dispatch(userLoginAction({
-      firstName: 'Ramin',
-      lastName: 'Rezaei',
-      email: 'info@raminrezaei.ir',
-    }));
+    dispatch(
+      userLoginAction({
+        firstName: 'Ramin',
+        lastName: 'Rezaei',
+        email: 'info@raminrezaei.ir'
+      })
+    );
     navigate(ROUTES.CHAT);
   };
 
@@ -59,7 +61,7 @@ export function RegisterForm() {
           placeholder='First Name'
           error={registerErrors.firstName?.message}
           options={{
-            ...registerForm("firstName", {
+            ...registerForm('firstName', {
               required: 'Required'
             })
           }}
@@ -68,22 +70,22 @@ export function RegisterForm() {
           placeholder='Last Name'
           error={registerErrors.lastName?.message}
           options={{
-            ...registerForm("lastName", {
+            ...registerForm('lastName', {
               required: 'Required'
             })
           }}
         />
-        <div className="col-span-2">
+        <div className='col-span-2'>
           <Input
             type='email'
             placeholder='Email Address'
             error={registerErrors.email?.message}
             options={{
-              ...registerForm("email", {
+              ...registerForm('email', {
                 required: 'Required',
                 pattern: {
                   value: /\S+@\S+\.\S+/,
-                  message: "Entered value does not match email format",
+                  message: 'Entered value does not match email format'
                 }
               })
             }}
@@ -94,7 +96,7 @@ export function RegisterForm() {
           placeholder='Password'
           error={registerErrors.password?.message}
           options={{
-            ...registerForm("password", {
+            ...registerForm('password', {
               required: 'Required'
             })
           }}
@@ -104,26 +106,33 @@ export function RegisterForm() {
           placeholder='Repeat Password'
           error={registerErrors.rePassword?.message}
           options={{
-            ...registerForm("rePassword", {
+            ...registerForm('rePassword', {
               required: 'Required',
-              validate: (repass) => repass === getValues('password') || 'Your passwords are not the same!'
+              validate: (repass) =>
+                repass === getValues('password') || 'Your passwords are not the same!'
             })
           }}
         />
       </div>
 
       <div className='flex items-center gap-x-3 mt-1'>
-        <label className={classnames("relative w-9 h-5", styles['register-form__switch'])}>
+        <label
+          className={classnames('relative w-9 h-5', styles['register-form__switch'])}
+        >
           <input
-            type="checkbox"
+            type='checkbox'
             className='opacity-0 w-0 h-0'
-            {...registerForm("terms", {required: 'Required'})}
+            {...registerForm('terms', { required: 'Required' })}
           />
-          <span className="absolute cursor-pointer bg-red-300 dark:bg-slate-500 top-0 left-0 right-0 bottom-0"/>
+          <span className='absolute cursor-pointer bg-red-300 dark:bg-slate-500 top-0 left-0 right-0 bottom-0' />
         </label>
         <div className='flex flex-col'>
-          <span>Accept Terms and Conditions <a className='text-xs opacity-70'
-                                               href={`#${HOME_MENU.TERMS}`}>( Read More )</a></span>
+          <span>
+            Accept Terms and Conditions{' '}
+            <a className='text-xs opacity-70' href={`#${HOME_MENU.TERMS}`}>
+              ( Read More )
+            </a>
+          </span>
           {registerErrors.terms?.message && (
             <span className='text-red-600 text-xs'>{registerErrors.terms?.message}</span>
           )}
@@ -141,9 +150,9 @@ export function RegisterForm() {
           onClick={googleAction}
           className='min-w-11 h-11 bg-white dark:bg-slate-500/20 rounded leading-7 py-2 text-black flex items-center justify-center gap-x-3'
         >
-          <img width={18} src='/images/google.png' alt='Google'/>
+          <img width={18} src='/images/google.png' alt='Google' />
         </button>
       </div>
     </>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Input } from "../../../shared/components/input";
-import { useEffect } from "react";
-import { ROUTES } from "../../../shared/constants/routes";
-import { userLoginAction } from "../../../shared/redux/user/user-slice";
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Input } from '../../../shared/components/input';
+import { useEffect } from 'react';
+import { ROUTES } from '../../../shared/constants/routes';
+import { userLoginAction } from '../../../shared/redux/user/user-slice';
 
 type LoginFormInputs = {
   email: string;
@@ -19,7 +19,7 @@ export function LoginForm() {
     reset: loginReset,
     register: loginForm,
     handleSubmit: handleLoginSubmit,
-    formState: { errors: loginErrors}
+    formState: { errors: loginErrors }
   } = useForm<LoginFormInputs>();
 
   const onLoginSubmit: SubmitHandler<LoginFormInputs> = (data) => {
@@ -31,11 +31,13 @@ export function LoginForm() {
   const googleAction = () => {
     // TODO 1: Google Auth API Request
     console.log('Google Action Login');
-    dispatch(userLoginAction({
-      firstName: 'Ramin',
-      lastName: 'Rezaei',
-      email: 'info@raminrezaei.ir',
-    }));
+    dispatch(
+      userLoginAction({
+        firstName: 'Ramin',
+        lastName: 'Rezaei',
+        email: 'info@raminrezaei.ir'
+      })
+    );
     navigate(ROUTES.CHAT);
   };
 
@@ -51,11 +53,11 @@ export function LoginForm() {
           placeholder='Email Address'
           error={loginErrors.email?.message}
           options={{
-            ...loginForm("email", {
+            ...loginForm('email', {
               required: 'Required',
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: "Entered value does not match email format",
+                message: 'Entered value does not match email format'
               }
             })
           }}
@@ -65,7 +67,7 @@ export function LoginForm() {
           placeholder='Password'
           error={loginErrors.password?.message}
           options={{
-            ...loginForm("password", {
+            ...loginForm('password', {
               required: 'Required'
             })
           }}
@@ -83,9 +85,9 @@ export function LoginForm() {
           onClick={googleAction}
           className='min-w-11 h-11 bg-white dark:bg-slate-500/20 rounded leading-7 py-2 text-black flex items-center justify-center gap-x-3'
         >
-          <img width={18} src='/images/google.png' alt='Google'/>
+          <img width={18} src='/images/google.png' alt='Google' />
         </button>
       </div>
     </>
-  )
+  );
 }

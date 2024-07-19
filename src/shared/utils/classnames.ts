@@ -7,5 +7,5 @@ type Argument = Value | Mapping | Array<Value | Mapping>;
 type ArgumentArray = Array<Argument>;
 
 export function classnames(...args: ArgumentArray): string {
-    return clsx(...args);
+  return clsx(...args);
 }

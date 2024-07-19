@@ -1,8 +1,8 @@
-import { FormEvent, useState } from "react";
-import { Chats } from "../index";
+import { FormEvent, useState } from 'react';
+import { Chats } from '../index';
 
 interface ChatInputsProps {
-  onChange: (chats: Chats) => void
+  onChange: (chats: Chats) => void;
 }
 
 export function ChatInputs({ onChange }: ChatInputsProps) {
@@ -48,10 +48,19 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
           </button>
         )}
 
-        {file && <img width={200} alt='PREVIEW' className='rounded' src={URL.createObjectURL(file)} />}
+        {file && (
+          <img
+            width={200}
+            alt='PREVIEW'
+            className='rounded'
+            src={URL.createObjectURL(file)}
+          />
+        )}
 
         <label className='flex flex-col items-center justify-center gap-2 cursor-pointer'>
-          {file?.name ? `${file?.name} - (${(file.size / 1048576).toFixed(2)} MB)` : 'Upload Your Chat Or Profile Screenshot'}
+          {file?.name
+            ? `${file?.name} - (${(file.size / 1048576).toFixed(2)} MB)`
+            : 'Upload Your Chat Or Profile Screenshot'}
           <input
             type='file'
             accept='image/*'
@@ -66,11 +75,11 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
           tabIndex={1}
           value={text}
           placeholder='More information ...'
-          onChange={({ target}) => setText(target.value)}
+          onChange={({ target }) => setText(target.value)}
           className='w-full leading-8 dark:bg-gray-800 bg-slate-200 outline-none px-3 py-1 rounded-md'
         />
         <button
-          type="submit"
+          type='submit'
           onClick={onGenerate}
           className='bg-blue-500 text-white px-3 py-1 leading-8 rounded-md'
         >
@@ -78,5 +87,5 @@ export function ChatInputs({ onChange }: ChatInputsProps) {
         </button>
       </form>
     </div>
-  )
+  );
 }

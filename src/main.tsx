@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import { ROUTES } from "./shared/constants/routes.ts";
+import { ROUTES } from './shared/constants/routes.ts';
 import { store, persistor } from './shared/redux/store.ts';
 
 // Pages
-import { Error404 } from "./404.tsx";
-import { Layout } from "./shared/layout";
-import { HomePage } from "./domains/home";
-import { ChatPage } from "./domains/chat";
+import { Error404 } from './404.tsx';
+import { Layout } from './shared/layout';
+import { HomePage } from './domains/home';
+import { ChatPage } from './domains/chat';
 
 // Styles
 import './styles/main.scss';

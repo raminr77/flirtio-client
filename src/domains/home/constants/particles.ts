@@ -1,79 +1,79 @@
-import { ISourceOptions } from "@tsparticles/engine";
+import { ISourceOptions } from '@tsparticles/engine';
 
 export const PARTICLES_CONFIG: ISourceOptions = {
-    fpsLimit: 120,
-    interactivity: {
-      events: {
-        onClick: {
-          enable: true,
-          mode: "push",
-        },
-        onHover: {
-            enable: true,
-            mode: ['grab']
-        },
+  fpsLimit: 120,
+  interactivity: {
+    events: {
+      onClick: {
+        enable: true,
+        mode: 'push'
       },
-      modes: {
-        grab: {
-            distance: 100,
-            line_linked: {
-              opacity: 0.3
-            }
-          },
-          bubble: {
-            size: 0,
-            speed: 3,
-            opacity: 0,
-            duration: 2,
-            distance: 250
-          },
-          repulse: {
-            duration: 0.4,
-            distance: 400
-          },
-          push: {
-            particles_nb: 4
-          },
-          remove: {
-            particles_nb: 2
-          }
-      },
+      onHover: {
+        enable: true,
+        mode: ['grab']
+      }
     },
-    particles: {
-        number: {
-          value: 100,
-          density: {
-            enable: true,
-          }
-        },
-        color: {
-          value: '#ffffff'
-        },
-        shape: {
-          type: 'circle',
-        },
-        opacity: {
-          value: 0.5,
-        },
-        size: {
-          value: 2,
-        },
+    modes: {
+      grab: {
+        distance: 100,
         line_linked: {
-          enable: true,
-          distance: 100,
-          opacity: 0.8,
-          width: 2
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: 'none',
-          random: true,
-          straight: false,
-          attract: {
-            enable: false,
-          }
+          opacity: 0.3
         }
       },
-    detectRetina: true,
-  };
+      bubble: {
+        size: 0,
+        speed: 3,
+        opacity: 0,
+        duration: 2,
+        distance: 250
+      },
+      repulse: {
+        duration: 0.4,
+        distance: 400
+      },
+      push: {
+        particles_nb: 4
+      },
+      remove: {
+        particles_nb: 2
+      }
+    }
+  },
+  particles: {
+    number: {
+      value: 100,
+      density: {
+        enable: true
+      }
+    },
+    color: {
+      value: '#ffffff'
+    },
+    shape: {
+      type: 'circle'
+    },
+    opacity: {
+      value: 0.5
+    },
+    size: {
+      value: 2
+    },
+    line_linked: {
+      enable: true,
+      distance: 100,
+      opacity: 0.8,
+      width: 2
+    },
+    move: {
+      enable: true,
+      speed: 1,
+      direction: 'none',
+      random: true,
+      straight: false,
+      attract: {
+        enable: false
+      }
+    }
+  },
+  detectRetina: true
+};

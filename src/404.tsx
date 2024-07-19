@@ -1,4 +1,4 @@
-import { ROUTES } from "./shared/constants/routes.ts";
+import { ROUTES } from './shared/constants/routes.ts';
 
 export function Error404() {
   return (
@@ -7,7 +7,7 @@ export function Error404() {
       <h1 className='font-bold text-lg'>Page Not Found!</h1>
       <p className='text-sm mt-2'>It happens! Now, let’s try to get you back on track.</p>
       <a
-         href={ROUTES.HOME}
+        href={ROUTES.HOME}
         className='text-xs mt-6 border-b border-solid p-2 hover:border-red-600 hover:text-red-600'
       >
         Home Page
