@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { ROUTES } from '../../shared/constants/routes';
 import { classnames } from '../../shared/utils/classnames';
+import { appSelectors } from '../../shared/redux/app/app-selectors';
 import { userSelectors } from '../../shared/redux/user/user-selectors';
 import { ToggleThemeButton } from '../../shared/components/toggle-theme-button';
 
@@ -16,6 +17,7 @@ const MENU_ITEM_CLASSES =
   'duration-300 border-b px-3 leading-7 hover:-translate-y-1 border-b-black dark:border-b-white';
 
 export function HomePage() {
+  const { darkMode } = useSelector(appSelectors.appData);
   const { isAuthenticated } = useSelector(userSelectors.userInfo);
   return (
     <div className='flex flex-col w-full justify-center items-center relative'>
@@ -66,8 +68,8 @@ export function HomePage() {
           className='w-full absolute bottom-0'
         >
           <path
-            fill='#00142D'
             fill-opacity='1'
+            fill={darkMode ? '#00142D' : '#f1f5f9'}
             d='M0,64L48,90.7C96,117,192,171,288,208C384,245,480,267,576,266.7C672,267,768,245,864,218.7C960,192,1056,160,1152,144C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
           />
         </svg>
