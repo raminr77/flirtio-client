@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { ChatHeader } from './components/chat-header';
 import { ChatInputs } from './components/chat-inputs';
-import { ROUTES } from '../../shared/constants/routes';
-import { useDispatch, useSelector } from 'react-redux';
-import { classnames } from '../../shared/utils/classnames';
 import { ChatResponseItem } from './components/chat-response-item';
+
+import { ROUTES } from '../../shared/constants/routes';
+import { classnames } from '../../shared/utils/classnames';
 import { userLogoutAction } from '../../shared/redux/user/user-slice';
 import { userSelectors } from '../../shared/redux/user/user-selectors';
 

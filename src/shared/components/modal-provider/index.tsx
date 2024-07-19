@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { appSelectors } from '../../redux/app/app-selectors';
-import { MODAL_NAMES } from '../../constants/modals';
-import { CreditModal } from '../credit-modal';
-import { hideModals } from '../../redux/app/app-slice';
 import { MouseEvent, useEffect } from 'react';
-import { classnames } from '../../utils/classnames';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { animator } from '../../utils/animator';
-import { ProfileModal } from '../profile-modal';
-import { AboutModal } from '../about-modal';
-import { PaymentModal } from '../payment-modal';
+import { classnames } from '../../utils/classnames';
+import { MODAL_NAMES } from '../../constants/modals';
+import { hideModals } from '../../redux/app/app-slice';
+import { appSelectors } from '../../redux/app/app-selectors';
+
+import { ProfileModal, CreditModal, PaymentModal, AboutModal } from '../modals';
 
 export function ModalProvider() {
   const dispatch = useDispatch();

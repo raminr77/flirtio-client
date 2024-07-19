@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { ToggleThemeButton } from '../../../shared/components/toggle-theme-button';
 import { userSelectors } from '../../../shared/redux/user/user-selectors';
 import { animator } from '../../../shared/utils/animator';

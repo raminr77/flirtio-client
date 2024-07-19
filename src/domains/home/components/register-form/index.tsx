@@ -1,12 +1,12 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { HOME_MENU } from '../constants';
-import { Input } from '../../../shared/components/input';
+import { HOME_MENU } from '../../constants';
+import { Input } from '../../../../shared/components/input';
 import { useDispatch } from 'react-redux';
-import { classnames } from '../../../shared/utils/classnames';
-import { ROUTES } from '../../../shared/constants/routes';
-import { userLoginAction } from '../../../shared/redux/user/user-slice';
+import { classnames } from '../../../../shared/utils/classnames';
+import { ROUTES } from '../../../../shared/constants/routes';
+import { userLoginAction } from '../../../../shared/redux/user/user-slice';
 
 import styles from './register-form.module.scss';
 
