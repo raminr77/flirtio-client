@@ -10,6 +10,9 @@ import { localStorageMiddleware } from './middlewares/local-storage';
 import appReducer from './app/app-slice.ts';
 import userReducer from './user/user-slice';
 
+// RTK
+import { userApi } from '../apis/user-api.ts';
+
 const persistConfig = {
   blacklist: [REDUCERS.USER],
   key: ENV_DATA.NAME,
@@ -25,7 +28,9 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     [REDUCERS.APP]: appReducer,
-    [REDUCERS.USER]: persistReducer(userPersistConfig, userReducer)
+    [REDUCERS.USER]: persistReducer(userPersistConfig, userReducer),
+    // RTK
+    [userApi.reducerPath]: userApi.reducer
   })
 );
 
@@ -34,7 +39,7 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false
-    }).concat(localStorageMiddleware)
+    }).concat([localStorageMiddleware, userApi.middleware])
 });
 
 export const persistor = persistStore(store);

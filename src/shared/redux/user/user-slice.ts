@@ -2,8 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 import { REDUCERS } from '../../constants/reducers.ts';
 
 const initialState: GUser = {
+  id: 0,
   email: '',
   credit: 0,
+  created: '',
+  updated: '',
   picture: '',
   lastName: '',
   firstName: '',
@@ -16,8 +19,7 @@ const userSlice = createSlice({
   reducers: {
     userLoginAction: (_, action) => {
       return {
-        credit: 3,
-        isAuthenticated: true,
+        isAuthenticated: !!action.payload?.accessToken,
         ...(action.payload || {})
       };
     },

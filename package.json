@@ -17,7 +17,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.2.5",
+    "@reduxjs/toolkit": "^2.2.6",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.5.0",
