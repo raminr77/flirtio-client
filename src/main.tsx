@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { ROUTES } from './shared/constants/routes.ts';
 import { store, persistor } from './shared/redux/store.ts';
+import { ENV_DATA } from './shared/constants/environment.ts';
 
 // Pages
 import { Error404 } from './404.tsx';
@@ -33,9 +35,11 @@ ReactDOM.createRoot(document.getElementById('app')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
-        <Layout>
-          <RouterProvider router={router} />
-        </Layout>
+        <GoogleOAuthProvider clientId={ENV_DATA.GOOGLE_CLIENT_ID}>
+          <Layout>
+            <RouterProvider router={router} />
+          </Layout>
+        </GoogleOAuthProvider>
       </PersistGate>
     </Provider>
   </React.StrictMode>
