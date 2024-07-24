@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from 'shared/constants/routes';
-import { userLoginAction } from 'shared/redux/user/user-slice';
-import { classnames } from 'shared/utils/classnames';
+
+import { ROUTES } from '../../../shared/constants/routes';
+import { classnames } from '../../../shared/utils/classnames';
+import { userLoginAction } from '../../../shared/redux/user/user-slice';
 
 export function GoogleAuthButton({ disabled = false }: { disabled?: boolean }) {
   const dispatch = useDispatch();
