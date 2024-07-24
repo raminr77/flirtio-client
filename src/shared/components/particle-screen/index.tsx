@@ -3,9 +3,9 @@ import { loadSlim } from '@tsparticles/slim';
 import type { ISourceOptions } from '@tsparticles/engine';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
 
-import { PARTICLES_CONFIG } from './constants/particles';
+import { PARTICLES_CONFIG } from './particles';
 
-export function HomeParticles() {
+export function ParticleScreen() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {

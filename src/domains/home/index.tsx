@@ -4,6 +4,7 @@ import { ROUTES } from '../../shared/constants/routes';
 import { classnames } from '../../shared/utils/classnames';
 import { appSelectors } from '../../shared/redux/app/app-selectors';
 import { userSelectors } from '../../shared/redux/user/user-selectors';
+import { ParticleScreen } from '../../shared/components/particle-screen';
 import { ToggleThemeButton } from '../../shared/components/toggle-theme-button';
 
 import { HomeIntro } from './home-intro';
@@ -11,7 +12,6 @@ import { HomeStart } from './home-start';
 import { HomeTerms } from './home-terms';
 import { HomeAbout } from './home-about';
 import { HOME_MENU } from './constants';
-import { HomeParticles } from './home-particles';
 
 const MENU_ITEM_CLASSES =
   'duration-300 border-b px-3 leading-7 hover:-translate-y-1 border-b-black dark:border-b-white';
@@ -59,7 +59,7 @@ export function HomePage() {
       <HomeTerms />
       {!isAuthenticated && <HomeStart />}
 
-      <HomeParticles />
+      <ParticleScreen />
 
       <div className='w-full fixed top-0 h-screen pointer-events-none z-0 opacity-50'>
         <svg
