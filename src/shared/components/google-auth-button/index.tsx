@@ -13,6 +13,13 @@ import { classnames } from '../../../shared/utils/classnames';
 import { useRegisterMutation } from '../../../shared/apis/user-api';
 import { userLoginAction } from '../../../shared/redux/user/user-slice';
 
+type GoogleUserData = {
+  email?: string;
+  picture?: string;
+  given_name?: string;
+  family_name?: string;
+};
+
 export function GoogleAuthButton({ disabled = false }: { disabled?: boolean }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,12 +31,7 @@ export function GoogleAuthButton({ disabled = false }: { disabled?: boolean }) {
   };
 
   const registerGoogleUser = ({ credential }: CredentialResponse) => {
-    const decodedData: {
-      email?: string;
-      picture?: string;
-      given_name?: string;
-      family_name?: string;
-    } = jwtDecode(credential || '');
+    const decodedData = jwtDecode(credential || '') as GoogleUserData;
 
     if (!decodedData?.email) {
       handleGoogleError();
@@ -55,8 +57,8 @@ export function GoogleAuthButton({ disabled = false }: { disabled?: boolean }) {
 
   const handleClick = useGoogleLogin({
     flow: 'auth-code',
-    onSuccess: (a) => {
-      console.log(a);
+    onSuccess: ({ code }) => {
+      console.log(code);
     },
     onError: handleGoogleError
   });
