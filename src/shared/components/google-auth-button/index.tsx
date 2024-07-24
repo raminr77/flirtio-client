@@ -10,8 +10,8 @@ import { jwtDecode } from 'jwt-decode';
 import { notify } from '../../../shared/utils/notify';
 import { ROUTES } from '../../../shared/constants/routes';
 import { classnames } from '../../../shared/utils/classnames';
-import { useRegisterMutation } from '../../../shared/apis/user-api';
 import { userLoginAction } from '../../../shared/redux/user/user-slice';
+import { useGoogleRegisterMutation } from '../../../shared/apis/user-api';
 
 type GoogleUserData = {
   email?: string;
@@ -20,55 +20,61 @@ type GoogleUserData = {
   family_name?: string;
 };
 
+const GOOGLE_PROFILE_URL = (token: string) =>
+  `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${token}`;
+
 export function GoogleAuthButton({ disabled = false }: { disabled?: boolean }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [register, { isLoading: isRegisterLoading }] = useRegisterMutation();
+  const [register, { isLoading: isRegisterLoading }] = useGoogleRegisterMutation();
 
-  const handleGoogleError = () => {
-    console.log('GOOGLE ERROR');
-    notify.error({ message: 'Google method is not available now' });
-  };
-
-  const registerGoogleUser = ({ credential }: CredentialResponse) => {
-    const decodedData = jwtDecode(credential || '') as GoogleUserData;
-
-    if (!decodedData?.email) {
+  const registerUser = (userData: GoogleUserData) => {
+    if (!userData?.email) {
       handleGoogleError();
       return;
     }
 
     register({
-      email: decodedData.email,
-      picture: decodedData.picture || null,
-      firstName: decodedData.given_name || '',
-      lastName: decodedData.family_name || ''
+      email: userData.email,
+      picture: userData.picture || null,
+      firstName: userData.given_name || '',
+      lastName: userData.family_name || ''
     })
       .then(({ data }) => {
         if (data) {
           dispatch(userLoginAction(data));
           navigate(ROUTES.CHAT);
         } else {
-          notify.error({ message: 'SERVER ERROR!' });
+          notify.error({ message: 'Error!' });
         }
       })
       .catch(() => notify.error({ message: 'SERVER ERROR!' }));
   };
 
+  const handleGoogleError = () => {
+    notify.error({ message: 'Google method is not available now' });
+  };
+
   const handleClick = useGoogleLogin({
-    flow: 'auth-code',
-    onSuccess: ({ code }) => {
-      console.log(code);
-    },
-    onError: handleGoogleError
+    onError: handleGoogleError,
+    onSuccess: ({ access_token }) => {
+      if (!access_token) return;
+      fetch(GOOGLE_PROFILE_URL(access_token))
+        .then((res) => res.json())
+        .then((userData) => registerUser(userData))
+        .catch(handleGoogleError);
+    }
   });
 
   useGoogleOneTapLogin({
     auto_select: true,
     use_fedcm_for_prompt: true,
     cancel_on_tap_outside: true,
-    onSuccess: registerGoogleUser,
-    onError: handleGoogleError
+    onError: handleGoogleError,
+    onSuccess: ({ credential }: CredentialResponse) => {
+      const decodedData = jwtDecode(credential || '') as GoogleUserData;
+      registerUser(decodedData);
+    }
   });
 
   return (

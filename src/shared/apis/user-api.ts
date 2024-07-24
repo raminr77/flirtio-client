@@ -11,7 +11,7 @@ const USER_URLS = {
   login: 'auth/login/',
   profile: 'auth/profile/',
   register: 'auth/register/',
-  googleAuth: 'auth/google/login/'
+  googleAuth: 'auth/google/'
 };
 
 export const userApi = createApi({
@@ -31,8 +31,16 @@ export const userApi = createApi({
         method: API_METHOD.post,
         body: requestBody
       })
+    }),
+    googleRegister: builder.mutation<UserRegisterResponse, UserRegisterReguest>({
+      query: (requestBody) => ({
+        url: USER_URLS.googleAuth,
+        method: API_METHOD.post,
+        body: requestBody
+      })
     })
   })
 });
 
-export const { useLoginMutation, useRegisterMutation } = userApi;
+export const { useLoginMutation, useRegisterMutation, useGoogleRegisterMutation } =
+  userApi;
