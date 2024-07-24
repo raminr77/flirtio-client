@@ -9,6 +9,7 @@ import { ROUTES } from '../../../../shared/constants/routes';
 import { classnames } from '../../../../shared/utils/classnames';
 import { useRegisterMutation } from '../../../../shared/apis/user-api';
 import { userLoginAction } from '../../../../shared/redux/user/user-slice';
+import { GoogleAuthButton } from '../../../../shared/components/google-auth-button';
 
 import { HOME_MENU } from '../../constants';
 
@@ -45,19 +46,6 @@ export function RegisterForm() {
         navigate(ROUTES.CHAT);
       })
       .catch(() => notify.error({ message: 'SERVER ERROR!' }));
-  };
-
-  const googleAction = () => {
-    // TODO 1: Google Auth API Request
-    console.log('Google Action Register');
-    dispatch(
-      userLoginAction({
-        firstName: 'Ramin',
-        lastName: 'Rezaei',
-        email: 'info@raminrezaei.ir'
-      })
-    );
-    navigate(ROUTES.CHAT);
   };
 
   useEffect(() => {
@@ -171,18 +159,7 @@ export function RegisterForm() {
         >
           REGISTER
         </button>
-        <button
-          onClick={googleAction}
-          disabled={isRegisterLoading}
-          className={classnames(
-            'min-w-11 h-11 bg-white dark:bg-slate-500/20 rounded leading-7 py-2 text-black flex items-center justify-center gap-x-3',
-            {
-              'pointer-events-none opacity-50': isRegisterLoading
-            }
-          )}
-        >
-          <img width={18} src='/images/google.png' alt='Google' />
-        </button>
+        <GoogleAuthButton disabled={isRegisterLoading} />
       </div>
     </>
   );

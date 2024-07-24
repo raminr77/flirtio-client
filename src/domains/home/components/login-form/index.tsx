@@ -9,6 +9,7 @@ import { ROUTES } from '../../../../shared/constants/routes';
 import { classnames } from '../../../../shared/utils/classnames';
 import { useLoginMutation } from '../../../../shared/apis/user-api';
 import { userLoginAction } from '../../../../shared/redux/user/user-slice';
+import { GoogleAuthButton } from '../../../../shared/components/google-auth-button';
 
 type LoginFormInputs = {
   email: string;
@@ -36,19 +37,6 @@ export function LoginForm() {
         navigate(ROUTES.CHAT);
       })
       .catch(() => notify.error({ message: 'SERVER ERROR!' }));
-  };
-
-  const googleAction = () => {
-    // TODO 1: Google Auth API Request
-    console.log('Google Action Login');
-    dispatch(
-      userLoginAction({
-        firstName: 'Ramin',
-        lastName: 'Rezaei',
-        email: 'info@raminrezaei.ir'
-      })
-    );
-    navigate(ROUTES.CHAT);
   };
 
   useEffect(() => {
@@ -101,17 +89,7 @@ export function LoginForm() {
         >
           LOGIN
         </button>
-        <button
-          onClick={googleAction}
-          className={classnames(
-            'min-w-11 h-11 bg-white dark:bg-slate-500/20 rounded leading-7 py-2 text-black flex items-center justify-center gap-x-3',
-            {
-              'pointer-events-none opacity-50': isLoginLoading
-            }
-          )}
-        >
-          <img width={18} src='/images/google.png' alt='Google' />
-        </button>
+        <GoogleAuthButton disabled={isLoginLoading} />
       </div>
     </>
   );
