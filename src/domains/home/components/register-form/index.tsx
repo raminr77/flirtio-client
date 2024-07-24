@@ -115,7 +115,8 @@ export function RegisterForm() {
           error={registerErrors.password?.message}
           options={{
             ...registerForm('password', {
-              required: 'Required'
+              required: 'Required',
+              minLength: 10
             })
           }}
         />
@@ -127,6 +128,7 @@ export function RegisterForm() {
           options={{
             ...registerForm('rePassword', {
               required: 'Required',
+              minLength: 10,
               validate: (repass) =>
                 repass === getValues('password') || 'Your passwords are not the same!'
             })

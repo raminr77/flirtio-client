@@ -84,7 +84,8 @@ export function LoginForm() {
           error={loginErrors.password?.message}
           options={{
             ...loginForm('password', {
-              required: 'Required'
+              required: 'Required',
+              minLength: 10
             })
           }}
         />

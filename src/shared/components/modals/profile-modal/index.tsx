@@ -99,7 +99,10 @@ export function ProfileModal() {
           placeholder='Password'
           error={registerErrors.password?.message}
           options={{
-            ...registerForm('password', {})
+            ...registerForm('password', {
+              minLength: 10,
+              required: false
+            })
           }}
         />
         <Input
@@ -108,6 +111,8 @@ export function ProfileModal() {
           error={registerErrors.rePassword?.message}
           options={{
             ...registerForm('rePassword', {
+              minLength: 10,
+              required: false,
               validate: (repass) =>
                 repass === getValues('password') || 'Your passwords are not the same!'
             })
