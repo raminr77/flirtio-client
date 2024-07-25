@@ -4,14 +4,16 @@ import {
   UserLoginReguest,
   UserLoginResponse,
   UserRegisterReguest,
-  UserRegisterResponse
+  UserRegisterResponse,
+  UserForgetPasswordReguest
 } from '../../types/apis/user.types.ts';
 
 const USER_URLS = {
   login: 'auth/login/',
   profile: 'auth/profile/',
   register: 'auth/register/',
-  googleAuth: 'auth/google/'
+  googleAuth: 'auth/google/',
+  forgetPassword: 'auth/forget-password/'
 };
 
 export const userApi = createApi({
@@ -38,9 +40,20 @@ export const userApi = createApi({
         method: API_METHOD.post,
         body: requestBody
       })
+    }),
+    forgetPassword: builder.mutation<void, UserForgetPasswordReguest>({
+      query: (requestBody) => ({
+        url: USER_URLS.forgetPassword,
+        method: API_METHOD.post,
+        body: requestBody
+      })
     })
   })
 });
 
-export const { useLoginMutation, useRegisterMutation, useGoogleRegisterMutation } =
-  userApi;
+export const {
+  useLoginMutation,
+  useRegisterMutation,
+  useGoogleRegisterMutation,
+  useForgetPasswordMutation
+} = userApi;

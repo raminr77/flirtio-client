@@ -100,7 +100,10 @@ export function ProfileModal() {
           error={registerErrors.password?.message}
           options={{
             ...registerForm('password', {
-              minLength: 10,
+              minLength: {
+                value: 10,
+                message: 'Your password should be 10 characters.'
+              },
               required: false
             })
           }}
@@ -111,8 +114,11 @@ export function ProfileModal() {
           error={registerErrors.rePassword?.message}
           options={{
             ...registerForm('rePassword', {
-              minLength: 10,
               required: false,
+              minLength: {
+                value: 10,
+                message: 'Your password should be 10 characters.'
+              },
               validate: (repass) =>
                 repass === getValues('password') || 'Your passwords are not the same!'
             })

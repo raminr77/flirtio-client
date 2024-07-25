@@ -7,6 +7,7 @@ import { notify } from '../../../../shared/utils/notify';
 import { Input } from '../../../../shared/components/input';
 import { ROUTES } from '../../../../shared/constants/routes';
 import { classnames } from '../../../../shared/utils/classnames';
+import { emailRegExp } from '../../../../shared/utils/validate-email';
 import { useRegisterMutation } from '../../../../shared/apis/user-api';
 import { userLoginAction } from '../../../../shared/redux/user/user-slice';
 import { GoogleAuthButton } from '../../../../shared/components/google-auth-button';
@@ -89,7 +90,7 @@ export function RegisterForm() {
               ...registerForm('email', {
                 required: 'Required',
                 pattern: {
-                  value: /\S+@\S+\.\S+/,
+                  value: emailRegExp,
                   message: 'Entered value does not match email format'
                 }
               })
