@@ -104,7 +104,10 @@ export function RegisterForm() {
           options={{
             ...registerForm('password', {
               required: 'Required',
-              minLength: 10
+              minLength: {
+                value: 10,
+                message: 'Your password should be 10 characters.'
+              }
             })
           }}
         />
@@ -116,7 +119,10 @@ export function RegisterForm() {
           options={{
             ...registerForm('rePassword', {
               required: 'Required',
-              minLength: 10,
+              minLength: {
+                value: 10,
+                message: 'Your password should be 10 characters.'
+              },
               validate: (repass) =>
                 repass === getValues('password') || 'Your passwords are not the same!'
             })
