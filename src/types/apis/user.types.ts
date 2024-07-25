@@ -15,6 +15,11 @@ export interface UserRegisterReguest {
 
 export interface UserRegisterResponse extends GUser {}
 
+export interface UserForgetPasswordResponse {
+  success: boolean;
+  message: string;
+}
+
 export interface UserForgetPasswordReguest {
   email: string;
 }

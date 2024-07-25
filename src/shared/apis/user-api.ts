@@ -5,7 +5,8 @@ import {
   UserLoginResponse,
   UserRegisterReguest,
   UserRegisterResponse,
-  UserForgetPasswordReguest
+  UserForgetPasswordReguest,
+  UserForgetPasswordResponse
 } from '../../types/apis/user.types.ts';
 
 const USER_URLS = {
@@ -41,7 +42,10 @@ export const userApi = createApi({
         body: requestBody
       })
     }),
-    forgetPassword: builder.mutation<void, UserForgetPasswordReguest>({
+    forgetPassword: builder.mutation<
+      UserForgetPasswordResponse,
+      UserForgetPasswordReguest
+    >({
       query: (requestBody) => ({
         url: USER_URLS.forgetPassword,
         method: API_METHOD.post,

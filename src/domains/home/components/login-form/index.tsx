@@ -54,9 +54,14 @@ export function LoginForm() {
       return;
     }
     forgetPassword({ email })
-      .then(() => {
-        setShowRecoverForm(false);
-        notify.success({ message: 'We sent login URL to your email address.' });
+      .then(({ data }) => {
+        const message = data?.message || '';
+        if (data?.success) {
+          setShowRecoverForm(false);
+          notify.success({ message });
+        } else {
+          notify.error({ message });
+        }
       })
       .catch(() => notify.error({ message: 'SERVER ERROR!' }));
   };
