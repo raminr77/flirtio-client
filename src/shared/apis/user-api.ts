@@ -51,12 +51,16 @@ export const userApi = createApi({
         method: API_METHOD.post,
         body: requestBody
       })
+    }),
+    getProfile: builder.query<any, void>({
+      query: () => USER_URLS.profile
     })
   })
 });
 
 export const {
   useLoginMutation,
+  useGetProfileQuery,
   useRegisterMutation,
   useGoogleRegisterMutation,
   useForgetPasswordMutation

@@ -1,11 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  type CredentialResponse,
-  useGoogleLogin,
-  useGoogleOneTapLogin
-} from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
+import { useGoogleLogin } from '@react-oauth/google';
+// import { jwtDecode } from 'jwt-decode';
 
 import { notify } from '../../../shared/utils/notify';
 import { ROUTES } from '../../../shared/constants/routes';
@@ -66,16 +62,16 @@ export function GoogleAuthButton({ disabled = false }: { disabled?: boolean }) {
     }
   });
 
-  useGoogleOneTapLogin({
-    auto_select: true,
-    use_fedcm_for_prompt: true,
-    cancel_on_tap_outside: true,
-    onError: handleGoogleError,
-    onSuccess: ({ credential }: CredentialResponse) => {
-      const decodedData = jwtDecode(credential || '') as GoogleUserData;
-      registerUser(decodedData);
-    }
-  });
+  // useGoogleOneTapLogin({
+  //   auto_select: true,
+  //   use_fedcm_for_prompt: true,
+  //   cancel_on_tap_outside: true,
+  //   onError: handleGoogleError,
+  //   onSuccess: ({ credential }: CredentialResponse) => {
+  //     const decodedData = jwtDecode(credential || '') as GoogleUserData;
+  //     registerUser(decodedData);
+  //   }
+  // });
 
   return (
     <button

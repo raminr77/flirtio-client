@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { classnames } from '../../../../shared/utils/classnames';
+import { useGetProfileQuery } from '../../../../shared/apis/user-api';
 import { userSelectors } from '../../../../shared/redux/user/user-selectors';
 
 import { Input } from '../../input';
@@ -18,6 +19,7 @@ export function ProfileModal() {
   const userData = useSelector(userSelectors.userInfo);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [picture, setPicture] = useState<string | null>(userData.picture || null);
+  const { data, isLoading } = useGetProfileQuery();
 
   const {
     getValues,
@@ -47,6 +49,8 @@ export function ProfileModal() {
   useEffect(() => {
     return () => registerReset();
   }, []);
+
+  console.log(data, isLoading);
 
   return (
     <div className='flex flex-col text-sm'>
